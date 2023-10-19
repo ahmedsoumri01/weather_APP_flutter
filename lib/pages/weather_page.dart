@@ -62,11 +62,30 @@ class _WeatherPageState extends State<WeatherPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('Weather App'),
+      ),
       body: Center(
         child: Column(
-          mainAxisAlignment:
-              MainAxisAlignment.center, //center the children vertically
           children: [
+            Row(
+              children: [
+                const Expanded(
+                    child: TextField(
+                  decoration: InputDecoration(
+                    hintText: 'Enter city name',
+                    /* border: OutlineInputBorder(), */
+                  ),
+                  /*  onSubmitted: _searchWeather, */
+                )),
+                IconButton(
+                  icon: const Icon(Icons.search),
+                  onPressed: () {
+                    /* _searchWeather(_weather?.cityName ?? ''); */
+                  },
+                ),
+              ],
+            ),
             //city name
             Text(
               _weather?.cityName ?? 'Loading...',
